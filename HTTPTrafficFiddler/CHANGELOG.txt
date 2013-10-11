@@ -1,0 +1,3 @@
+﻿v. 1.0.5 (7. 10. 2013):
+- resolved an issue with routing inside virtualized hosts
+  (destination MAC addresses of captured packets no longer need to match interface's MAC addresses for Fiddly to process them inside "IPv4Router")
