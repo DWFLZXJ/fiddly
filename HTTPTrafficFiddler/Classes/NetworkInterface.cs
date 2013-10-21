@@ -2,6 +2,8 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
+using System.Linq;
+using Framework = System.Net.NetworkInformation;
 
 using PacketDotNet;
 
@@ -168,13 +170,19 @@ namespace HTTPTrafficFiddler.Classes
                 break;
             }
 
-            // set default gateway
-            if (PcapInterface.GatewayAddress != null && PcapInterface.GatewayAddress.AddressFamily == AddressFamily.InterNetwork)
+            // set default gateway (use information from System.Net.NetworkInformation to get correct gateway on dual-stack interfaces)
+            if (PcapInterface.GatewayAddress != null)
             {
-                byte[] gatewayBytes = PcapInterface.GatewayAddress.GetAddressBytes();
-                IPv4Gateway = new IPAddress(gatewayBytes);
+                var interfaces = Framework.NetworkInterface.GetAllNetworkInterfaces();
+                var iface = (Framework.NetworkInterface)interfaces.Where(i => PcapInterface.Name.Contains(i.Id)).First();
 
-                HasIPv4Gateway = true;
+                foreach (var gateway in iface.GetIPProperties().GatewayAddresses)
+                {
+                    if (gateway.Address.AddressFamily != AddressFamily.InterNetwork) continue;
+
+                    IPv4Gateway = gateway.Address;
+                    HasIPv4Gateway = true;
+                }               
             }
 
             // set hardware address
