@@ -34,20 +34,3 @@ Features:
 2) Packet.Net - http://sourceforge.net/projects/packetnet/
 
 3) "Metro Studio" icons - http://www.syncfusion.com/downloads/metrostudio
-
---------------------------------------------------------------------------
-(D) FAQ
---------------------------------------------------------------------------
-
-1) Does Fiddly process any host PC's traffic?
-
-- Fiddly only processes traffic from other clients on your local 
-  network. It creates static ARP entries on host PC to make 
-  sure your internet connectivity isn't compromised.
-
-2) What are the legal grounds for Fiddly's usage?
-
-- Fiddly can be used only with the permission of your network's 
-  administrator and all of the affected clients.
-
-3) ...
