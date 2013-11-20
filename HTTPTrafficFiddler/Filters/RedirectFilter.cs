@@ -204,7 +204,9 @@ namespace HTTPTrafficFiddler.Filters
 
         private bool IsFilterMatch(HttpRequest request)
         {
-            var requestUrl = "http://" + request.Host + request.Path;            
+            var requestUrl = "http://" + request.Host + request.Path;
+
+            if (requestUrl.Contains(RedirectTarget)) return false;
 
             if (RedirectType == RedirectFilterType.URL)
             {

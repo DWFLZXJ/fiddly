@@ -69,7 +69,7 @@ namespace HTTPTrafficFiddler
 
             var targetURL = RedirectTarget.Text;
 
-            // check redirect string - validate regex, prevent loops
+            // check redirect string - validate regex
             if((RedirectFilterType)RedirectType.SelectedIndex == RedirectFilterType.Regex) {
                 Regex regex;
                 
@@ -82,28 +82,6 @@ namespace HTTPTrafficFiddler
                     MessageBox.Show("Please enter a valid regular expression.",
                         "Validation error", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
-                }
-
-                if (regex.IsMatch(targetURL))
-                {
-                    MessageBox.Show("Current regular expression matches the target URL. Please change your regular expression or target URL to prevent redirection loops.",
-                        "Possible redirection loop detected", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }
-            }
-            // check redirect string - prevent loops from bad keyword matching
-            else if ((RedirectFilterType)RedirectType.SelectedIndex == RedirectFilterType.Keywords)
-            {
-                var keywords = RedirectString.Text.Split(',');
-
-                foreach (var keyword in keywords)
-                {
-                    if (targetURL.Contains(keyword))
-                    {
-                        MessageBox.Show("One of the entered keywords matches the target URL. Please change your keywords or target URL to prevent redirection loops.",
-                            "Possible redirection loop detected", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        return;
-                    }
                 }
             }
 
