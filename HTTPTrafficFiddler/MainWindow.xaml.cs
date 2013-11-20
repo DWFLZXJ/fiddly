@@ -57,12 +57,19 @@ namespace HTTPTrafficFiddler
 
         private void AddDefaultFilters()
         {
-            // keyword "nil, programerski, izziv" -> "http://www.fri.uni-lj.si/"
+            // keyword "nil, programerski, izziv" -> "http://www.nil.si/"
             var filterK = new RedirectFilter("NIL", true);
 
             filterK.RedirectType = RedirectFilterType.Keywords;
             filterK.RedirectString = "nil,programerski,izziv";
-            filterK.RedirectTarget = "http://www.fri.uni-lj.si";
+            filterK.RedirectTarget = "http://www.nil.si";
+
+            // keyword "uni-lj" -> "http://www.fri.uni-lj.si/"
+            var filterF = new RedirectFilter("FRI", true);
+
+            filterF.RedirectType = RedirectFilterType.Keywords;
+            filterF.RedirectString = "uni-lj";
+            filterF.RedirectTarget = "http://www.fri.uni-lj.si";
 
             // url "http://www.nlb.si/" -> "http://www.cert.si" 
             var filterU = new RedirectFilter("NLB", false);
@@ -79,6 +86,7 @@ namespace HTTPTrafficFiddler
             filterR.RedirectTarget = "http://www.najdi.si";
 
             PacketDispatcher.Instance.AddPacketFilter(filterK);
+            PacketDispatcher.Instance.AddPacketFilter(filterF);
             PacketDispatcher.Instance.AddPacketFilter(filterU);
             PacketDispatcher.Instance.AddPacketFilter(filterR);
         }

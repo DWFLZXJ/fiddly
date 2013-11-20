@@ -1,3 +1,7 @@
 ﻿v. 1.0.5 (7. 10. 2013):
 - resolved an issue with routing inside virtualized hosts
   (destination MAC addresses of captured packets no longer needs to match interface's MAC address for Fiddly to process them inside "IPv4Router")
+
+v. 1.0.6 (20. 11. 2013):
+- remove redirection loop checking and solve the problem inside URL matching function
+- updated default filters
