@@ -1,12 +1,12 @@
 ﻿# Fiddly, the HTTP traffic fiddler
 
-Fiddly is a simple man-in-the-middle attack tool used for applying filters to HTTP traffic on the local network.
+Fiddly is a simple man-in-the-middle attack tool used for applying filters to the HTTP traffic on the local network.
 
 ## About
 
 This project was the winning entry in its category at a student competition organized by NIL d.o.o. and the 
 Faculty of Computer and Information Science, Ljubljana in 2013. There are no plans for further development and 
-the project is posted here only for archival purposes.
+the project is posted here for archival purposes only.
 
 Features:
 

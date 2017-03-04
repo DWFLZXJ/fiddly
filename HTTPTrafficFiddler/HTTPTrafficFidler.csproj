@@ -209,9 +209,9 @@
     <Content Include="Assemblies\PacketDotNet.dll" />
     <Content Include="Assemblies\SharpPcap.dll" />
     <Resource Include="CHANGELOG.txt" />
-    <Content Include="README.txt">
+    <None Include="README.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Resource Include="Icons\app.main.ico" />
     <Resource Include="Icons\app.main.png" />
     <Resource Include="Icons\menu.delete.png" />
