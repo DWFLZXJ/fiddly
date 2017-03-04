@@ -25,3 +25,7 @@ Features:
 1. SharpPcap - https://github.com/chmorgan/sharppcap
 2. Packet.Net - http://sourceforge.net/projects/packetnet/
 3. "Metro Studio" icons - http://www.syncfusion.com/downloads/metrostudio
+
+## Disclaimer
+
+This software may be used only for educational and security testing purposes with your network administrator's consent. The author takes no responsibility for improper (or even illegal) usage, data loss or other damage that might occur during its usage.
